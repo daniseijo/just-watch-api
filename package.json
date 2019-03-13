@@ -1,0 +1,56 @@
+{
+  "name": "just-watch-api",
+  "version": "0.1.0",
+  "description": "A simple test to try npm uploads",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "test": "jest --config jest.config.js",
+    "build": "tsc",
+    "format": "prettier --write \"{src,__{tests,mocks}__}/**/*.ts\" \"src/**/*.js\"",
+    "lint": "tslint -p tsconfig.json",
+    "coveralls": "yarn test --coverage && cat ./coverage/lcov.info | coveralls",
+    "prepare": "yarn build",
+    "prepublishOnly": "yarn test && yarn lint",
+    "preversion": "yarn lint",
+    "version": "yarn format && git add -A src",
+    "postversion": "git push && git push --tags"
+  },
+  "files": [
+    "lib"
+  ],
+  "keywords": [
+    "justwatch",
+    "just-watch",
+    "api",
+    "just-watch-api",
+    "movies",
+    "tv-shows",
+    "films",
+    "netflix"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/daniseijo/just-watch-api.git"
+  },
+  "author": "Daniel Seijo Sánchez <daniseijo12@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "bugs": {
+    "url": "https://github.com/daniseijo/djust-watch-api/issues"
+  },
+  "homepage": "https://github.com/daniseijo/just-watch-api#readme",
+  "devDependencies": {
+    "@types/jest": "^24.0.10",
+    "coveralls": "^3.0.3",
+    "jest": "^24.3.1",
+    "prettier": "^1.16.4",
+    "ts-jest": "^24.0.0",
+    "tslint": "^5.13.1",
+    "tslint-config-prettier": "^1.18.0",
+    "typescript": "^3.3.3333"
+  },
+  "dependencies": {
+    "axios": "^0.18.0"
+  }
+}
